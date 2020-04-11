@@ -1,26 +1,31 @@
 import React from 'react';
+import {BrowserRouter, 
+  Redirect, 
+  Route, 
+  Switch
+} from "react-router-dom";
+
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { HomePage, Contacts } from './pages';
+
+class App extends React.Component{
+
+
+  render(){
+    return (
+      <React.StrictMode>
+          <BrowserRouter hi>
+              <Switch>
+                  <Route exact path="/" component={HomePage}/>
+                  <Route exact path="/contacts" component={Contacts}/>
+              </Switch>
+          </BrowserRouter>
+      </React.StrictMode>
+    );
+  }
 }
 
 export default App;
