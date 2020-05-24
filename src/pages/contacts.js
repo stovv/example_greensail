@@ -79,6 +79,12 @@ class Contacts extends React.Component{
                             </>
                     }
                 </Col>
+                <MyCard small headerText="Текст"
+                        links={[
+                            {link: "instagramm.com", text: "мой инстаграмм"},
+                            {link: "", text:""}
+                            ]
+                        }>Текс карточки</MyCard>
             </Row>
         );
     }

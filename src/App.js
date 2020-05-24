@@ -9,6 +9,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { Menu } from './components';
 import { HomePage, Contacts } from './pages';
 
 class App extends React.Component{
@@ -16,14 +17,18 @@ class App extends React.Component{
 
   render(){
     return (
-      <React.StrictMode>
-          <BrowserRouter hi>
-              <Switch>
-                  <Route exact path="/" component={HomePage}/>
-                  <Route exact path="/contacts" component={Contacts}/>
-              </Switch>
-          </BrowserRouter>
-      </React.StrictMode>
+        <>
+            {/*<Header/>*/}
+            <Menu/>
+              <React.StrictMode>
+                  <BrowserRouter hi>
+                      <Switch>
+                          <Route exact path="/" component={HomePage}/>
+                          <Route exact path="/contacts" component={Contacts}/>
+                      </Switch>
+                  </BrowserRouter>
+              </React.StrictMode>
+        </>
     );
   }
 }
