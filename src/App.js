@@ -19,7 +19,16 @@ class App extends React.Component{
     return (
         <>
             {/*<Header/>*/}
-            <Menu/>
+            <Menu items={[
+                {
+                    title: "Home",
+                    link: "/"
+                },
+                {
+                    title: "Shop",
+                    link: "/shop"
+                }
+            ]}/>
               <React.StrictMode>
                   <BrowserRouter hi>
                       <Switch>
