@@ -9,7 +9,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Menu } from './components';
+import Menu from './components/Menu';
 import { HomePage, Contacts } from './pages';
 
 class App extends React.Component{

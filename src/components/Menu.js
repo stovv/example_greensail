@@ -33,17 +33,20 @@ const MenuIconText = styled.span`
 `;
 
 const MenuWrapper = styled.div`
-    display: ${ props=> props.display === 'none' ? props.display: 'flex' };
+    display: flex;
     height: 100vh;
-    width: 30vw;
+    width: ${props => props.open ? '30vw' : '0px'};
+    opacity: ${props => props.open ? '1' : '0'};
     max-width: 350px;
     flex-direction: column;
+    transition: all 3s ease-in-out;
     background-color: #123456;
 `;
 
 const MenuLink = styled.a`
     font-family: Lato, Open Sans, sans-serif;
     color: ${props=>props.color ? props.color : "#fff"};
+    display: ${props => props.open ? 'block' : 'none'};
     margin: 20px auto;
     text-transform: ${props=>props.textTransform};
     text-align: ${props=>props.textAlign};
@@ -74,11 +77,11 @@ class Menu extends React.Component {
                     onClick={()=>  this.setState({ isOpen: !this.state.isOpen }) }>
                     <MenuIconText textTransform="lowercase">Menu</MenuIconText>
                 </MenuButton>
-                <MenuWrapper display={this.state.isOpen ? 'flex': 'none'}>
+                <MenuWrapper open={this.state.isOpen}>
                     {
                         items.map((item, index)=>(
                             <React.Fragment key={index}>
-                                <MenuLink href={item.link}>{item.title}</MenuLink>
+                                <MenuLink href={item.link} open={this.state.isOpen}>{item.title}</MenuLink>
                             </React.Fragment>
                         ))
                     }
